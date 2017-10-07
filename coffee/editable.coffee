@@ -6,13 +6,15 @@
       new Editable(this, options)
 
   $.fn.editable.defaults = {
-    theme: 'BS4'
+    theme: 'BS4',
+    ajaxOptions: {}
   }
 
   class Editable
-    constructor: (el, options)->
+    constructor: (el, options = {})->
       self = @
       @options = options
+      @options.ajaxOptions = $.fn.editable.defaults.ajaxOptions unless options.ajaxOptions
       $el = $(el)
       @el = $el
       $el.text('Empty') if $el.text() == ''
