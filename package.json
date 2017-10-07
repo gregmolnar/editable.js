@@ -1,0 +1,9 @@
+{
+  "name": "editable.js",
+  "version": "0.0.1",
+  "description": "Javascript Library for inline editing",
+  "main": "index.js",
+  "author": "Greg Molnar <molnargerg@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/gregmolnar/editable.js.git"
+}
