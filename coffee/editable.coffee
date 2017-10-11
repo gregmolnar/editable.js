@@ -42,7 +42,7 @@
         unless type == 'date' || type == 'chosen'
           field.blur ->
             self.save(field.val())
-            field.remove()
+            field.parent('.form-group').remove()
             $el.show()
 
     save: (val)->
@@ -96,7 +96,7 @@
       $(input).datepicker(@options).on 'hide', (e) ->
         editable.save(input.val())
         editable.el.show()
-        input.remove()
+        wrapper.remove()
       return input
 
   class ChosenField extends EditableField
