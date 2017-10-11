@@ -17,7 +17,7 @@
       @options.ajaxOptions = $.fn.editable.defaults.ajaxOptions unless options.ajaxOptions
       $el = $(el)
       @el = $el
-      $el.text('Empty') if $el.text() == ''
+      $el.text('Empty') if $el.text().replace(/ |\n/g,'') == ''
 
       switch $.fn.editable.defaults.theme
         when 'BS4' then @theme = BS4Theme
@@ -53,7 +53,6 @@
       editable = @
       ajax_options['success'] = ->
         el.text(val)
-        console.log el.data('callback')
         window[el.data('callback')](editable) if el.data('callback')
       $.ajax(ajax_options)
 
@@ -81,7 +80,7 @@
       wrapper = $(editable.theme.text_area)
       @el.after(wrapper)
       @el.hide()
-      input = wrapper.find('input')
+      input = wrapper.find('textarea')
       input.val(@editable.el.text())
       return input
 
